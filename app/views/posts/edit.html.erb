@@ -1,0 +1,30 @@
+<div class='post-edit'>
+ <div class="container">
+  <div class="row">
+  <div class="mx-auto">
+ <i class="fas fa-edit left-side__search-title ">編集しよう</i>
+ <%= form_with model: @post, url: post_path, id: 'post', local:true do |f| %>
+ <%= render "shared/error_messages", resource: @post %>
+  <div>
+  <%= f.label :写真 %><br>
+  <%= f.file_field :image, accept: "image/*" %>
+  </div>
+  <div>
+  <%= f.label :題名 %><br>
+  <%= f.text_field :title %>
+  </div>
+  <div>
+  <%= f.label :text, 'ポスト本文(250文字まで)' %><br>
+  <%= f.text_area :body, :size => "100x20" %>
+  </div>
+  <div>
+  <%= f.submit '編集', class: "btn btn-primary"%>
+  </div>
+  
+  <%= link_to 'みんなのポストへ', posts_path, class: "btn btn-success" %>
+  
+ <% end %>
+</div>
+</div>
+</div>
+</div>

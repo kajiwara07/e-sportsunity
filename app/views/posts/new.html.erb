@@ -1,0 +1,34 @@
+<h1>ポスト投稿フォーム</h1>
+<div class="container">
+  <div class="row">
+  <div class="mx-auto">
+   <% if @post.errors.any? %>
+    <%= @post.errors.count %>件のエラーが発生しました
+     <ul>
+      <% @post.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with model: @post, local: true do |f| %>
+  <div>
+  <%= f.label :写真 %><br>
+  <%= f.file_field :image, accept: "image/*" %>
+  </div>
+  <div>
+  <%= f.label :題名 %><br>
+  <%= f.text_field :title %>
+  </div>
+  <div>
+  <%= f.label :text, 'ポスト本文(250文字まで)' %><br>
+  <%= f.text_area :body, :size => "100x20" %>
+  </div>
+  <div>
+  <%= f.submit '投稿', class: "btn btn-black"%>
+  </div>
+  
+  <%= link_to 'みんなのポストへ', posts_path %>
+  <% end %>
+  </div>
+ </div>
+</div>

@@ -1,4 +1,4 @@
 class AController < ApplicationController
-  def admin/posts
+  def admin
   end
 end

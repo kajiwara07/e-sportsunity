@@ -1,0 +1,61 @@
+.header {
+    height: 60px;
+    background-color: rgb(50, 50, 50);
+    
+    &__box {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+ 
+    &__title-box {
+        float: left;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    &__title {
+        line-height: 39px;
+        font-size: 36px;
+        color: white;
+    }
+    
+    &__title:hover {
+        color: white;
+        text-decoration: none;
+    }
+    
+    &__content-box {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        float: right;
+        line-height: 40px;
+    }
+    
+    &__content {
+        color: white;
+        padding-left: 20px;
+    }
+    
+    &__content:hover {
+        color: white;
+    }
+    
+    @media screen and (max-width: 425px) {
+        .header {
+            height: 40px;
+            
+            &__box {
+                padding-left: 6px;
+                padding-right: 6px;
+            }
+            
+            &__title-box {
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+            
+            &__title {
+                line-height: 28px;
+                font-size: 22px
