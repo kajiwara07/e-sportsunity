@@ -2,14 +2,7 @@
 <div class="container">
   <div class="row">
   <div class="mx-auto">
-   <% if @post.errors.any? %>
-    <%= @post.errors.count %>件のエラーが発生しました
-     <ul>
-      <% @post.errors.full_messages.each do |message| %>
-       <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+  <%= render "shared/error_messages", resource: @post %>
 <%= form_with model: @post, local: true do |f| %>
   <div>
   <%= f.label :写真 %><br>
@@ -19,15 +12,15 @@
   <%= f.label :題名 %><br>
   <%= f.text_field :title %>
   </div>
-  <div>
+  <div class="post-text-item">
   <%= f.label :text, 'ポスト本文(250文字まで)' %><br>
   <%= f.text_area :body, :size => "100x20" %>
   </div>
   <div>
-  <%= f.submit '投稿', class: "btn btn-black"%>
+  <%= f.submit '投稿', class: "btn btn-dark"%>
   </div>
   
-  <%= link_to 'みんなのポストへ', posts_path %>
+  <%= link_to 'みんなのポストへ', posts_path, class: "btn btn-primary" %>
   <% end %>
   </div>
  </div>

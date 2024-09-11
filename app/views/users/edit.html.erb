@@ -1,4 +1,7 @@
-<h1>ユーザー編集</h1>
+<div class="container">
+  <div class="row">
+  <div class="mx-auto">
+   <i class="fas fa-edit left-side__search-title ">編集しよう</i>
 <div id="error_explanation">
         <% if @user.errors.any? %>
           <h3><%= @user.errors.count %> errors prohibited this obj from being saved:</h3>
@@ -23,3 +26,5 @@
   <br>
   <%= f.submit '更新' %>
 <% end %>
+</div>
+</div>

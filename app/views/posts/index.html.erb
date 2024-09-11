@@ -1,4 +1,6 @@
 <div class="card-list-container ">
+ <div class="row">    
+ <div class="mx-auto">
    <h1>みんなのポスト</h1>
   <% @posts.each do |post| %>
     <div class="card w-50 mx-auto mt-4 shadow-lg">
@@ -6,7 +8,6 @@
         <div class="post-image-item">
          <div class="d-flex" style=" padding: 5px;">
           <div class="post-user-image">
-            <!-- post.user のプロフィール画像を表示 -->
              <% if post.user %>
               <%= link_to user_path(post.user_id) do %>
                <%= image_tag post.user.get_profile_image, size: "50x50", class: "rounded-circle"; %>
@@ -39,4 +40,6 @@
       </div>
     </div>
   <% end %>
+  </div>
+  </div>
  </div>
