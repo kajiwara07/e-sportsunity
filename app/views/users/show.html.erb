@@ -16,6 +16,7 @@
       <div class="col">
         <h2>自分のポスト</h2>
         <%= link_to "新規ポスト", new_post_path, class: "btn btn-primary" %> 
+        <br>
 
         <% @posts.each do |post| %>
           <div class="card w-50 mx-auto mt-4 shadow-lg">
