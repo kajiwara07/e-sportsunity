@@ -1,9 +1,9 @@
-<div class="container-fluid my-5  bg01">
+<div class="container-fluid bg01 background-image">
   <div class="row">
   <div class="mx-auto">
    
 <div class='main-visual'>
-<h1 class="text-white">ESportsUnity</h1>
+<h1 class="text-white my-5">ESportsUnity</h1>
 <div class='main-visual__box-1'>
  <div class='main-visual__box-1-content-1'>
  
@@ -11,23 +11,23 @@
  <div class="top-wrapper">
  </div>
  <div class='main-visual__box-1-content-2'>
-  <p class="text-white">好きなゲームチームを</p>
-  <h3 class="text-white">応援しよう</h3>
-  <h3 class="text-white">共有しよう</h3>
-  <h3 class="text-white">語り合おう</h3>
+  <p class="text-white", style="text-align:center">好きなゲームチームを</p>
+  <h3 class="text-white", style="text-align:center">応援しよう</h3>
+  <h3 class="text-white", style="text-align:center">共有しよう</h3>
+  <h3 class="text-white", style="text-align:center">語り合おう</h3>
  </div>
 </div>
 
-<div class='main-visual__box-2'>
+<div class='main-visual__box-2', style='text-align: center;'>
   <div class='main-visual__notifications'>
   </div>
   <div class='main-visual__box-2-content-1'>
-    <%= link_to 'ユーザー登録', new_user_registration_path, class: 'btn btn-warning' %>
+    <%= link_to 'ユーザー登録', new_user_registration_path, class: 'btn btn-warning', style:"" %>
     <br>
     <br>
     <br>
     <br>
-    <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-info' %>
+    <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-info', style:"text-align:center;" %>
     <br>
     <br>
   </div>
@@ -36,3 +36,12 @@
 </div>
 </div>
 </div>
+ <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container">
+     <div class="row no-gutters">
+      <div class="mx-auto">
+    <%= render 'layouts/footer' %>
+      </div>
+     </div>
+    </div>
+ </footer>

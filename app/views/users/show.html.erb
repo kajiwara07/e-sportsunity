@@ -1,12 +1,12 @@
 
-<div class="main posts-index">
-  <div class="container-fluid my-5 bg01">
-    <div class="row">
-      <%= image_tag @user.get_profile_image, size: "100x100",  class: "rounded-circle"; %>
-      <h1 class="text-white"><%= @user.name %>のマイページ</h1>
+<div class="main posts-index costam">
+  <div class="container-fluid  bg01">
+    <div class="row ">
+      <%= image_tag @user.get_profile_image, size: "100x100",  class: "rounded-circle my-5"; %>
+      <h1 class="text-white " style="padding-left: 10px; padding-top: 60px;"><%= @user.name %>のマイページ</h1>
       <br>
       <br>
-     <div class="user-profile">
+     <div class="user-profile" style= "padding-left: 10px; padding-top: 70px;">
       <%= link_to 'プロフィールを編集', edit_user_path(@user), class: "btn btn-secondary"%>
       <%= link_to '退会', user_path(@user), method: :delete, data: { confirm: "本当に退会しますか？" }, class: "btn btn-danger" %>
      </div>
@@ -19,7 +19,7 @@
         <br>
 
         <% @posts.each do |post| %>
-          <div class="card w-50 mx-auto mt-4 shadow-lg">
+          <div class="card w-50 mx-auto mt-4">
             <div class="posts-index-item">
               <div class="d-flex" style=" padding: 5px;">
                 <div class="posts-image-item ">

@@ -13,8 +13,9 @@
           </ul>
         <% end %>
 </div>
+<div class="profile-image">
 <%= image_tag @user.get_profile_image, size: "100x100", style: "padding: 10px;", class: "rounded-circle "; %>
-
+</div>
   <br>
   <%= f.label :名前, class: "text-white" %>
   <%= f.text_field :name %>

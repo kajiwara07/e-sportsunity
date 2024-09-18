@@ -1,9 +1,9 @@
-<div class="container-fluid my-5 bg01">
+<div class="container-fluid my-5 ">
  <div class="row">
-   <div class="col no-gutters ">
-        <h1 class="text-white">詳細ポスト</h2>
+   <div class="col-6 no-gutters ">
+        <h1 class="text-white">詳細ポスト</h1>
 
-        <div class="card w-50 mt-4 shadow-lg">
+        <div class="card mt-4">
             <div class="posts-index-item">
               <div class="d-flex" style="padding: 5px;">
                 <div class="posts-image-item">
@@ -34,7 +34,7 @@
               </div>
               
               <br>
-              <%= @post.created_at.strftime('%Y-%m-%d %H:%M') %> <!-- 日付フォーマット -->
+              <%= @post.created_at.strftime('%Y-%m-%d %H:%M') %> 
             </div>
         </div>
       </div>

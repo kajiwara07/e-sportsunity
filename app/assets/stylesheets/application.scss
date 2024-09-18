@@ -1,0 +1,26 @@
+ .img-fluid {
+ background-image: url('kankyaku.jpg');
+ background-size: cover;
+ background-repeat: no-repe;
+ min-height:  100vh;
+}
+.background-image {
+ background-image: url('Esports.jpg');
+ background-size: cover;
+ background-repeat: no-repeat;
+ min-height:  100vh;
+}
+
+.costam {
+  background-image: url('tpr.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height:  100vh;
+}
+    
+@media screen and (max-width: 600px){
+img {
+ max-width: 100%;
+} 
+}
