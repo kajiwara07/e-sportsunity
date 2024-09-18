@@ -1,5 +1,5 @@
- <% if  resource.errors.any? %>
-         <div id="error_explanation" class='devise-error-explanation'>
+  <% if  resource.errors.any? %>
+         <div id="error_explanation" class='devise-error-explanation text-white'>
           <h3><%=  resource.errors.count %> errors prohibited this obj from being saved:</h3>
           <ul>
             <%  resource.errors.full_messages.each do |message| %>

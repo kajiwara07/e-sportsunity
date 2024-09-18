@@ -1,9 +1,9 @@
 
 <div class="main posts-index">
-  <div class="container">
+  <div class="container-fluid my-5 bg01">
     <div class="row">
-      <%= image_tag @user.get_profile_image, size: "100x100", class: "rounded-circle"; %>
-      <h1><%= @user.name %>のマイページ</h1>
+      <%= image_tag @user.get_profile_image, size: "100x100",  class: "rounded-circle"; %>
+      <h1 class="text-white"><%= @user.name %>のマイページ</h1>
       <br>
       <br>
      <div class="user-profile">
@@ -13,8 +13,8 @@
     </div>
     
     <div class="row">
-      <div class="col">
-        <h2>自分のポスト</h2>
+      <div class="col no-gutters mx-auto">
+        <h2 class="text-white">自分のポスト</h2>
         <%= link_to "新規ポスト", new_post_path, class: "btn btn-primary" %> 
         <br>
 
@@ -25,19 +25,21 @@
                 <div class="posts-image-item ">
                   <%= image_tag post.user.get_profile_image, size: "50x50", class: "rounded-circle"; %>
                 </div>
-                <div class="line-height" >
+                <div class="line-height h5" >
                   <span style="text-align: center;"><%= post.user.name %></span>
                 </div>
               </div>
            
               <div class="post-main">
+               <%= link_to post_path(post.id) do %>
                 <% if post.image_url.present? %>
                   <%= image_tag post.image_url, class: "card-img-top" %>
                    <% else %>
                 <% end %>
+               <% end %>
               </div>
 
-              <div class="post-user-names">
+              <div class="post-user-names h4">
                 <span><%= post.title %></span>
               </div>
 

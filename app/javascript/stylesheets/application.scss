@@ -17,10 +17,22 @@
    padding-left: 50px;
    padding-right: 50px;
  }
+ 
+ header {
+  background-clolor: #000011;
+ }
  .post-edit {
   padding-left: auto;
  }
-
+ 
+ body  {
+   background-color: #333333;
+   //background-image: url(Esports.jpg) center center / cover no-repeat fixed;
+ }
+ .img-fluid {
+ background-image: url("<%= asset_path 'Esports.jpg' %>");
+ background-size: cover;
+}
 
 @media screen and (max-width: 600px) {
   .rounded-circle{
@@ -41,4 +53,10 @@
 .post-text-item {
   width: 100%;
 }
+
+f.text_area {
+ width: 100%;
+ height: 100px;
+}
+
 }

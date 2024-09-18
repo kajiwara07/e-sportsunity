@@ -1,0 +1,42 @@
+<div class="container-fluid my-5 bg01">
+ <div class="row">
+   <div class="col no-gutters ">
+        <h1 class="text-white">詳細ポスト</h2>
+
+        <div class="card w-50 mt-4 shadow-lg">
+            <div class="posts-index-item">
+              <div class="d-flex" style="padding: 5px;">
+                <div class="posts-image-item">
+                <% if @user.present? %>
+                 <%= link_to mypage_path(@user.id) do %>
+                  <%= image_tag @post.user.get_profile_image, size: "50x50", class: "rounded-circle" %>
+                 <% end %>
+                 <% else%>
+                <% end %>
+                </div>
+                <div class="line-height h5">
+                  <span style="text-align: center;"><%= @post.user.name %></span>
+                </div>
+              </div>
+
+              <div class="post-main">
+                  <% if @post.image_url.present? %>
+                    <%= image_tag @post.image_url, class: "card-img-top" %>
+                  <% end %>
+              </div>
+
+              <div class="post-user-names h4">
+                <span><%= @post.title %></span>
+              </div>
+
+              <div class="posts-user-names">
+                <span><%= @post.body %></span>
+              </div>
+              
+              <br>
+              <%= @post.created_at.strftime('%Y-%m-%d %H:%M') %> <!-- 日付フォーマット -->
+            </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 <div class="card-list-container ">
  <div class="row">    
  <div class="mx-auto">
-   <h1>みんなのポスト</h1>
+   <h1 class="text-white">みんなのポスト</h1>
   <%= link_to "新規ポスト", new_post_path, class: "btn btn-primary" %> 
   <% @posts.each do |post| %>
     <div class="card w-50 mx-auto mt-4 shadow-lg">
@@ -16,7 +16,7 @@
              <% end %>
           </div>
           <div class="line-height">
-            <span><%= post.user.name %></span>
+            <span class="h5"><%= post.user.name %></span>
           </div>
           </div>
           </div>
@@ -28,7 +28,7 @@
             <% end %>
             <% end %>
           </div>
-          <p class="post-user-names">
+          <p class="post-user-names h4">
             <span><%= post.title %></span>
           </p>
           <div class="posts-user-names">

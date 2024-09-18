@@ -6,15 +6,24 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <style>
+    .background-image {
+      background-image: url('../asset/images/Esports.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh; 
+     }
+    </style>
+
     <script src="https://kit.fontawesome.com/2aa0a486f9.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="d-flex flex-column vh-100">
-    <header class="shadow-sm">
+  <body class="d-flex flex-column background-image vh-100">
+    <header class="bg-dark">
   <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a class="navbar-brand p-3" href="/">ESportsUnity</a>
+    <div class="container-fluid">
+      <a class="navbar-brand p-3 text-white" href="/">ESportsUnity</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -24,10 +33,10 @@
           <%= render 'layouts/header-user' %>
         <% else %>
         <li class="nav-item">
-          <%= link_to "ユーザー登録", new_user_registration_path, class: 'nav-link text-dark' %>
+          <%= link_to "ユーザー登録", new_user_registration_path, class: 'nav-link text-white' %>
         </li>
         <li class="nav-item">
-          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-white' %>
         </li>
         <% end %>
         </ul>
@@ -37,10 +46,11 @@
 
 
     </header>
-    <main>
-     
+    <main class="mb-auto">
+      
     <%= yield %>
-      </main>
+    </main>
+      
     <footer class="bg-dark text-white pt-5 pb-4">
     <div class="container">
      <div class="row no-gutters">
