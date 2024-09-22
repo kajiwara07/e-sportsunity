@@ -4,6 +4,13 @@
  background-repeat: no-repeat;
  min-height:  100vh;
 }
+.img-fluid-content {
+ width: auto;
+ height: auto;
+ z-index: 1000;
+ background-color: rgba( 0, 0, 0, 0.5); 
+ height: 100vh;
+}
 .background-image {
  background-image: url('Esports.jpg');
  background-size: cover;
@@ -18,7 +25,13 @@
   background-repeat: no-repeat;
   min-height:  100vh;
 }
-    
+.main-wathing {
+ width: 500px;
+ height: 300px;
+ backgound-image: url('about.jpg');
+ background-position: center;
+}
+
 @media screen and (max-width: 600px){
 img {
  max-width: 100%;

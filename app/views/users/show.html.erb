@@ -1,22 +1,25 @@
 
 <div class="main posts-index costam">
-  <div class="container-fluid  bg01">
-    <div class="row ">
-      <%= image_tag @user.get_profile_image, size: "100x100",  class: "rounded-circle my-5"; %>
-      <h1 class="text-white " style="padding-left: 10px; padding-top: 60px;"><%= @user.name %>のマイページ</h1>
-      <br>
-      <br>
-     <div class="user-profile" style= "padding-left: 10px; padding-top: 70px;">
-      <%= link_to 'プロフィールを編集', edit_user_path(@user), class: "btn btn-secondary"%>
+ <div class="container-fluid  bg01">
+  <div class="row">
+     <div class="col my-5">
+     <span class"user-status">
+      <%= image_tag @user.get_profile_image, size: "100x100",  class: "rounded-circle "; %>
+       <h1 class="text-white"><%= @user.name %>のマイページ</h1>
+      <div class="user-profile">
+       <%= link_to 'プロフィールを編集', edit_user_path(@user), class: "btn btn-secondary"%>
       <%= link_to '退会', user_path(@user), method: :delete, data: { confirm: "本当に退会しますか？" }, class: "btn btn-danger" %>
      </div>
+     </span>
     </div>
+  </div>
     
     <div class="row">
-      <div class="col no-gutters mx-auto">
+      <div class="col no-gutters mx-auto my-3">
+       <div class="user-names mx-5">
         <h2 class="text-white">自分のポスト</h2>
         <%= link_to "新規ポスト", new_post_path, class: "btn btn-primary" %> 
-        <br>
+      </div>
 
         <% @posts.each do |post| %>
           <div class="card w-50 mx-auto mt-4">
@@ -25,8 +28,8 @@
                 <div class="posts-image-item ">
                   <%= image_tag post.user.get_profile_image, size: "50x50", class: "rounded-circle"; %>
                 </div>
-                <div class="line-height h5" >
-                  <span style="text-align: center;"><%= post.user.name %></span>
+                <div class="line-height" >
+                  <span class="h5", style="text-align: center;"><%= post.user.name %></span>
                 </div>
               </div>
            
@@ -44,11 +47,13 @@
               </div>
 
               <div class="posts-user-names">
-                <span><%= post.body %></span>
+                <%= truncate( post.body, length: 250 ) do %>
+                　<%= link_to '続きを表示する', post_path(post.id) %>
+                <% end %>
               </div>
               
-              <br>
-              <%= post.created_at.strftime('%Y-%m-%d %H:%M') %> <!-- 日付フォーマット -->
+             <br>
+              <%= post.created_at.strftime('%Y-%m-%d %H:%M') %> 
               <%= link_to "編集", edit_post_path(post.id) %> <!-- 編集リンク -->
               <%= link_to "削除", post_path(post.id), method: :delete, data: { confirm: "本当に削除しますか？" } %> <!-- 削除リンク -->
             </div>

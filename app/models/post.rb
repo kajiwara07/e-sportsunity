@@ -3,6 +3,8 @@ class Post < ApplicationRecord
     has_one_attached :image
       validates :title, presence: true
       validates :body, presence: true
+      validates :title, length: { in: 1..75 }
+      validates :body, length: { in: 2..500 }
      
     def image_url
     return nil unless image.attached?

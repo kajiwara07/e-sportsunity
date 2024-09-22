@@ -32,7 +32,9 @@
             <span><%= post.title %></span>
           </p>
           <div class="posts-user-names">
-            <span><%= post.body %></span>
+            <%= truncate( post.body, length: 250 ) do %>
+             <%= link_to '続きを表示する', post_path(post.id) %>
+            <% end %>
           </div>
           <br>
           <span class="post-time">

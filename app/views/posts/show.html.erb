@@ -1,6 +1,6 @@
 <div class="container-fluid my-5 ">
  <div class="row">
-   <div class="col-6 no-gutters ">
+   <div class="col-md-6 no-gutters ">
         <h1 class="text-white">詳細ポスト</h1>
 
         <div class="card mt-4">
@@ -14,8 +14,8 @@
                  <% else%>
                 <% end %>
                 </div>
-                <div class="line-height h5">
-                  <span style="text-align: center;"><%= @post.user.name %></span>
+                <div class="line-height">
+                  <span class="h5", style="text-align: center;"><%= @post.user.name %></span>
                 </div>
               </div>
 
@@ -30,13 +30,18 @@
               </div>
 
               <div class="posts-user-names">
-                <span><%= @post.body %></span>
+                <span><%= safe_join(@post.body.split("\n"),tag(:br)) %></span>
               </div>
               
               <br>
               <%= @post.created_at.strftime('%Y-%m-%d %H:%M') %> 
             </div>
         </div>
+      </div>
+      <div class="col-md-6">
+       <h1 class= "text-white">comment</h1>
+       
+       
       </div>
     </div>
 </div>
