@@ -1,31 +1,31 @@
 <div class="container">
   <div class="row">
   <div class="mx-auto">
-<h2>Sign up</h2>
+<h2 class="text-white my-5">Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
    <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, class:"text-white" %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
   
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, class:"text-white" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password, class:"text-white" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em class="text-white">(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class:"btn btn-success" %>
   </div>
 <% end %>
 

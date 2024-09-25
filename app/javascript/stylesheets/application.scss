@@ -31,7 +31,18 @@
  }
 
 .main-visual__box-3 {
-  padding-top: 180px;
+  margin: center;
+}
+
+.about-title {
+ margin-left: 3rem;
+ margin-top: 3rem;
+ width: 100%;
+ border-bottom: 1px solid;
+ border-bottom-color: red;
+}
+.main-top {
+ width: 100%;
 }
 @media screen and (max-width: 600px) {
   .rounded-circle{
@@ -67,4 +78,9 @@ f.text_area {
 height: 300px;
 width: 300px;
 }
+.about-title {
+ max-width: auto;
+ margin: 0;
+}
+
 }

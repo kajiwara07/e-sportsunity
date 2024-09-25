@@ -37,3 +37,10 @@ img {
  max-width: 100%;
 } 
 }
+@media screen and (max-width: 992px){
+ .about-text{
+  position: absolute !important;
+  top: 50%;
+  left: 0;
+ }
+}
