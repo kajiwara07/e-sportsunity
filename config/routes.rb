@@ -14,8 +14,8 @@ Rails.application.routes.draw do
    # sessions: 'admin/sessions'
   #}
   
-  namespace :admin do
-    resources :posts
-    get 'dashbords', to: 'dashboards#index'
-  end
+  #namespace :admin do
+    #resources :posts
+   # get 'dashbords', to: 'dashboards#index'
+  #end
 end
