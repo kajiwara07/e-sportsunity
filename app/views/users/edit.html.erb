@@ -5,7 +5,7 @@
    <i class="fas fa-edit left-side__search-title text-white h2 ">編集しよう</i>
 <div id="error_explanation">
         <% if @user.errors.any? %>
-          <h3><%= @user.errors.count %> errors prohibited this obj from being saved:</h3>
+          <h3><%= @user.errors.count %> 件のエラーが出ました。</h3>
           <ul>
             <% @user.errors.full_messages.each do |message| %>
               <li><%= message %></li>

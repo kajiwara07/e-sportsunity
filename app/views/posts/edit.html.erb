@@ -1,31 +1,44 @@
- <%= form_with model: @post, url: post_path, id: 'post', local:true do |f| %>
-<div class='post-edit', style="padding-left:15px; padding-right:15px;">
- <div class="container-fluid my-5">
-  <div class="row">
-  <div class="mx-auto">
- <i class="fas fa-edit left-side__search-title text-white h2 ">編集しよう</i>
-  <%= render "shared/error_messages", resource: @post %>
-  <div>
-  <%= f.label :写真, class: "text-white" %><br>
-  <%= f.file_field :image, accept: "image/*", class: "text-white" %>
+<%= form_with model: @post, url: post_path, id: 'post', local: true do |f| %>
+  <div class='post-edit' style="padding-left:15px; padding-right:15px;">
+    <div class="container-fluid my-5">
+      <div class="row">
+        <div class="mx-auto">
+          <i class="fas fa-edit left-side__search-title text-white h2">編集しよう</i>
+          <div class="text-white">
+            <% if @post.errors.any? %>
+              <h3><%= @post.errors.count %> 件のエラーが出ました。</h3>
+              <ul>
+                <% @post.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+
+          <div>
+            <%= f.label :image, '写真', class: "text-white" %><br>
+            <%= f.file_field :image, accept: "image/*", class: "text-white" %>
+          </div>
+
+          <div>
+            <%= f.label :title, '題名', class: "text-white" %><br>
+            <%= f.text_field :title %>
+          </div>
+
+          <div>
+            <%= f.label :body, 'ポスト本文(500文字まで)', class: "text-white" %><br>
+            <%= f.text_area :body, size: "100x20", class: "text-dark form-control", rows: 2 %>
+          </div>
+
+          <span class="update">
+            <%= f.submit '更新', class: "btn btn-primary" %>
+          </span>
+
+          <span class="post-list">
+            <%= link_to 'みんなのポストへ', posts_path, class: "btn btn-success" %>
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-  <%= f.label :題名, class: "text-white" %><br>
-  <%= f.text_field :title %>
-  </div>
-  <div>
-  <%= f.label :text, 'ポスト本文(500文字まで)', class: "text-white" %><br>
-  <%= f.text_area :body, :size => "100x20", class: "text-dark form-control", style: "width100%", rows:2 %>
-  </div>
-  <span class= "">
-    <%= f.submit '更新', class: "btn btn-primary"%>
-   </span>
-   <span class= "">
-    <%= link_to 'みんなのポストへ', posts_path, class: "btn btn-success" %>
-   </span>
-  </div>
- <% end %>
-</div>
-</div>
-</div>
-</div>
+<% end %>

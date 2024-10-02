@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates :name, length: { minimum: 2 }
   validates :name, length: { maximum: 20 }
   
+  
   def get_profile_image
   unless profile_image.attached?
     file_path = Rails.root.join('app/assets/images/no_image.jpg')

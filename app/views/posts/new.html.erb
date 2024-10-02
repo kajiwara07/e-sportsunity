@@ -2,26 +2,35 @@
 <div class="container">
   <div class="row">
   <div class="mx-auto">
-  <%= render "shared/error_messages", resource: @post %>
-<%= form_with model: @post, local: true do |f| %>
-  <div>
-  <%= f.label :写真, class: "text-white" %><br>
-  <%= f.file_field :image, accept: "image/*", class: "text-white"%>
+   <div class="text-white">
+　　<%= form_with model: @post, local: true do |f| %>
+  　　<% if @post.errors.any? %>
+          <h3><%= @post.errors.count %> 件のエラーが出ました。</h3>
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+    </div>
+　<div>
+  　<%= f.label :写真, class: "text-white" %><br>
+  　<%= f.file_field :image, accept: "image/*", class: "text-white"%>
   </div>
   <div>
-  <%= f.label :題名, class: "text-white" %><br>
-  <%= f.text_field :title %>
+  　<%= f.label :題名, class: "text-white" %><br>
+  　<%= f.text_field :title %>
   </div>
   <div class="post-text-item">
-  <%= f.label :text, 'ポスト本文(500文字まで)', class: "text-white" %><br>
-  <%= f.text_area :body, :size => "100x20", class: "text-dark" %>
+  　<%= f.label :text, 'ポスト本文(500文字まで)', class: "text-white" %><br>
+  　<%= f.text_area :body, :size => "100x20", class: "text-dark" %>
   </div>
   <span>
-  <%= f.submit '投稿', class: "btn btn-primary"%>
+  　<%= f.submit '投稿', class: "btn btn-primary"%>
   
-  <%= link_to 'みんなのポストへ', posts_path, class: "btn btn-info" %>
+  　<%= link_to 'みんなのポストへ', posts_path, class: "btn btn-info" %>
   </span>
-  <% end %>
+  　<% end %>
   </div>
  </div>
 </div>
