@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2024_09_10_011416) do
 
   create_table "chats", force: :cascade do |t|
     t.integer "user_id"
+    t.string "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -80,7 +81,7 @@ ActiveRecord::Schema.define(version: 2024_09_10_011416) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "image"
+    t.string "img"
   end
 
   create_table "users", force: :cascade do |t|
