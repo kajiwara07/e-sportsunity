@@ -8,10 +8,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      redirect_to mypage_path(@post)  # 保存に成功した場合のリダイレクト先
+      redirect_to mypage_path(@post)  
     else
       @posts = Post.all
-      render :new  # 保存に失敗した場合のビュー
+      render :new 
     end
   end
 
@@ -21,8 +21,10 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments  
     @user = @post.user
     @user = current_user
+    @comment = Comment.new
   end
 
   def edit

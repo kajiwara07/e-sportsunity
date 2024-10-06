@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show, :edit, :update, :destroy]
   resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+        resources :comments, only: [:create, :destroy]
         get :search, on: :collection
   end
   resources :groups, only: [:index, :create, :show, :edit, :update, :destroy]

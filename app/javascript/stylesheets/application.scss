@@ -34,8 +34,10 @@
   margin: center;
 }
 .text-form {
-  flex-grow: 1;
-  
+  flex-grow: 3S;
+}
+.comment-form {
+  background-color: rgb(255,255,255);
 }
 .about-title {
  margin-left: 3rem;
