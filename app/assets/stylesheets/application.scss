@@ -31,6 +31,12 @@
  backgound-image: url('about.jpg');
  background-position: center;
 }
+.back-image {
+ background-image: url('kankyaku.jpg');
+ background-size: cover;
+ background-repeat: no-repeat;
+ min-height:  100vh;
+}
 
 @media screen and (max-width: 600px){
 img {

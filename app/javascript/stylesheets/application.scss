@@ -33,7 +33,10 @@
 .main-visual__box-3 {
   margin: center;
 }
-
+.text-form {
+  flex-grow: 1;
+  
+}
 .about-title {
  margin-left: 3rem;
  margin-top: 3rem;
@@ -82,5 +85,7 @@ width: 300px;
  max-width: auto;
  margin: 0;
 }
-
+.text-form {
+ max-width: 100%;
+}
 }

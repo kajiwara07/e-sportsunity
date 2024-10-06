@@ -48,6 +48,15 @@ class PostsController < ApplicationController
     end
   end
   
+  def search
+   @section_title = "「#{params[:search]}」の検索結果"
+   @posts = if params[:search].present?
+               Post.where(['title LIKE ? OR body LIKE ?',
+                        "%#{params[:search]}%", "%#{params[:search]}%"])
+           else
+             Post.none
+           end
+  end
   private
   
   def post_params

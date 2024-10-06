@@ -1,5 +1,5 @@
+<div class="container-fluid img-fluid">
 <h1 class="text-white">ポスト投稿フォーム</h1>
-<div class="container">
   <div class="row">
   <div class="mx-auto">
    <div class="text-white">
@@ -23,7 +23,7 @@
   </div>
   <div class="post-text-item">
   　<%= f.label :text, 'ポスト本文(500文字まで)', class: "text-white" %><br>
-  　<%= f.text_area :body, :size => "100x20", class: "text-dark" %>
+  　<%= f.text_area :body, style: "width:100%", class: "text-form" %>
   </div>
   <span>
   　<%= f.submit '投稿', class: "btn btn-primary"%>
