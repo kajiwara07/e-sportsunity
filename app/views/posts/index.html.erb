@@ -20,11 +20,11 @@
               </div>
             </div>
             <div class="post-main">
-              <%= link_to do %>
-                <% if post.image_url.present? %>
-                  <%= image_tag post.image_url, class: "card-img-top" %>
-                <% end %>
+             <%= link_to post_path(post.id) do %>
+              <% if post.image_url.present? %>
+                <%= image_tag post.image_url, class: "card-img-top" %>
               <% end %>
+             <% end %>
             </div>
             <p class="post-user-names h4">
               <span><%= post.title %></span>
