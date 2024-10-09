@@ -2,7 +2,7 @@
   <div class="row" style="padding-left: 15px; padding-right: 15px;">
     <div class="mx-auto">
       <h1 class="text-white my-5">みんなのポスト</h1>
-       <%= render "posts/search", post: @post %>
+       <%= render "public/posts/search", post: @post %>
       <%= link_to "新規ポスト", new_post_path, class: "btn btn-primary" %>
       <% @posts.each do |post| %>
         <div class="card w-50 mx-auto mt-4">

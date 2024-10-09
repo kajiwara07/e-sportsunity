@@ -1,4 +1,4 @@
-class GroupsController < ApplicationController
+class Public::GroupsController < ApplicationController
     
     def index
         

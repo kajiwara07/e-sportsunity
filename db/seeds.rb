@@ -43,4 +43,6 @@ Post.find_or_create_by!(title: "ShoreditchBar") do |post|
   post.user = lucas
 end
 
+Admin.create!(email: 'admin@admin',password: 'testtest')
+
 puts "seedの実行が完了しました"
