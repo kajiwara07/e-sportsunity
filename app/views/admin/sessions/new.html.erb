@@ -6,12 +6,12 @@
      <%= form_with model: @admin, url: session_path(resource_name), local: true do |f| %>
       <div class="field">
        <%= f.label :email, class:"text-white" %><br />
-       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Eメール" %>
       </div>
 
       <div class="field">
        <%= f.label :password, class:"text-white" %><br />
-       <%= f.password_field :password, autocomplete: "current-password" %>
+       <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード" %>
       </div>
 
      <% if devise_mapping.rememberable? %>

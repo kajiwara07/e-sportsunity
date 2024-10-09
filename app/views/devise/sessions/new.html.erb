@@ -8,12 +8,12 @@
   
   <div class="field">
     <%= f.label :name, class:"text-white" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ユーザー名" %>
   </div>
 
   <div class="field">
     <%= f.label :password, class:"text-white" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード" %>
   </div>
 
   <% if devise_mapping.rememberable? %>

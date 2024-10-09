@@ -1,7 +1,9 @@
 <div class="container-fluid img-fluid">
-<h1 class="text-white">ポスト投稿フォーム</h1>
-  <div class="row">
-  <div class="mx-auto">
+ <div class="col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+  <div class="row no-gutters" style="padding-left: 15px; padding-right: 15px;">
+    
+  <!--<div class="mt-4">-->
+  <h1 class="text-white">ポスト投稿フォーム</h1>
    <div class="text-white">
 　　<%= form_with model: @post, local: true do |f| %>
   　　<% if @post.errors.any? %>
@@ -13,24 +15,25 @@
           </ul>
         <% end %>
     </div>
-　<div>
-  　<%= f.label :写真, class: "text-white" %><br>
+　<div class="input-group mt-4 mb-3">
   　<%= f.file_field :image, accept: "image/*", class: "text-white"%>
   </div>
-  <div>
-  　<%= f.label :題名, class: "text-white" %><br>
-  　<%= f.text_field :title %>
+  <div class="input-group mb-3 mt-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-building"></i></span>
+            </div>
+  　<%= f.text_field :title, placeholder: "タイトル" %>
   </div>
-  <div class="post-text-item">
-  　<%= f.label :text, 'ポスト本文(500文字まで)', class: "text-white" %><br>
-  　<%= f.text_area :body, style: "width:100%", class: "text-form" %>
-  </div>
-  <span>
-  　<%= f.submit '投稿', class: "btn btn-primary"%>
+  　<%= f.text_area :body, class: "form-control", rows: '10', placeholder: "500文字まで" %>
   
-  　<%= link_to 'みんなのポストへ', posts_path, class: "btn btn-info" %>
+  <span>
+  　<%= f.submit '投稿', class: "btn btn-primary mt-4" %>
+  
+  　<%= link_to 'みんなのポストへ', posts_path, class: "btn  btn-info mt-4" %>
   </span>
   　<% end %>
+    </div>
+   </div>
   </div>
  </div>
 </div>

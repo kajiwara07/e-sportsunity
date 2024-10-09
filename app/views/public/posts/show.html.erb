@@ -1,5 +1,6 @@
 <div class="container-fluid my-5 back-image">
  <div class="row">
+   <%= render "public/shared/error_messages", post: @post %>
    <div class="col-md-6 no-gutters ">
         <h1 class="text-white">詳細ポスト</h1>
 
@@ -34,9 +35,11 @@
               </div>
               
               <br>
-              <%= @post.created_at.strftime('%Y-%m-%d %H:%M') %> 
-              <%= link_to "編集", edit_post_path(@post.id) %> 
-              <%= link_to "削除", post_path(@post.id), method: :delete, data: { confirm: "本当に削除しますか？" } %> 
+                <%= @post.created_at.strftime('%Y-%m-%d %H:%M') %> 
+              <% if @post.user_id == current_user.id %>
+               <%= link_to "編集", edit_post_path(@post.id) %> 
+               <%= link_to "削除", post_path(@post.id), method: :delete, data: { confirm: "本当に削除しますか？" } %> 
+              <% end %>
             </div>
         </div>
       </div>
@@ -61,7 +64,7 @@
           <td> <%= link_to comment.user.name, mypage_path(@user.id) %></td>
           <td><%= comment.body %></td>
           <% if comment.user_id == current_user.id %>
-              <td><%= link_to "Destroy", post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
+              <td><%= link_to "Destroy", post_comment_path(@post.id), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-sm btn-danger" %></td>
           <% end %>
         </tr>
       <% end %>
@@ -70,7 +73,7 @@
       <div>
        <p class="text-white">コメント件数：<%= @comments.count %></p>
        <%= form_with model: [@post, @comment] do |f| %>
-        <%= f.text_area :body, rows: '5', placeholder: "コメントをここに" %>
+        <%= f.text_area :body, rows: '5', class: "form-control", placeholder: "コメントを書きましょう" %>
         <%= f.submit "送信する" %>
     　 <% end %>
       </div>

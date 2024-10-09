@@ -8,8 +8,9 @@ class Public::CommentsController < ApplicationController
         redirect_to post_path(post)
     end
     def destroy
-        Comment.find(params[:id]).destroy
-        redirect_to post_path(post)
+        current_user.comments.find_by(params[:post_id]).destroy
+        flash[:notice] = 'コメントを削除しました'
+        redirect_to post_path(params[:post_id])
     end
     
     private

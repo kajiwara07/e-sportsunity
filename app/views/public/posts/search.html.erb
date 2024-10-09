@@ -3,9 +3,10 @@
     <div class="mx-auto">
       <h1 class="text-white"><%= @section_title %></h1>
       <h1 class="text-white my-5">みんなのポスト</h1>
-      <%= render "posts/search", post: @post %>
-      <%= link_to "新規ポスト", new_post_path, class: "btn btn-primary" %>
-      
+      <%= render "public/posts/search", post: @post %>
+      <i class="fa-solid fa-plus" style="color: #FFD43B;">
+        <%= link_to "新規ポスト", new_post_path, class: "h3"%>
+      </i>
       <% if @posts.any? %>
         <% @posts.each do |post| %>
           <div class="card w-50 mx-auto mt-4">
@@ -29,8 +30,9 @@
                 <span><%= post.title %></span>
               </p>
               <div class="posts-user-names">
-                <%= truncate(post.body, length: 250, separator: ' ') %>
+                <%= truncate(post.body, length: 250, separator: ' ') do %>
                 <%= link_to '続きを表示する', post_path(post.id) %>
+               <% end %>
               </div>
               <br>
               <span class="post-time">

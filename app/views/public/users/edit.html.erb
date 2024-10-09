@@ -1,8 +1,8 @@
 <%= form_with(model: @user, url: user_path, local: true) do |f| %>
-<div class="container-fluid my-5 mx-5">
-  <div class="row">
-  <div class="mx-auto">
-   <i class="fas fa-edit left-side__search-title text-white h2 ">編集しよう</i>
+<div class="container-fluid my-5">
+  <div class="row" style="padding: 15px">
+  <div class="mx-auto card w-50" style="padding-left: 15px; padding-right: 15px;">
+   <i class="fas fa-edit h1">編集しよう</i>
 <div id="error_explanation">
         <% if @user.errors.any? %>
           <h3><%= @user.errors.count %> 件のエラーが出ました。</h3>
@@ -15,20 +15,21 @@
 </div>
 <div class="profile-image">
   <%= image_tag @user.get_profile_image, size: "100x100", style: "padding: 10px;", class: "rounded-circle "; %>
-   </div>
+ </div>
      <br>
-     <%= f.label :名前, class: "text-white" %>
+     <%= f.label :名前, class: "text-dark" %>
      <%= f.text_field :name %>
      <br>
-     <%= f.label :email, class: "text-white" %>
+     <%= f.label :email, class: "text-dark" %>
      <%= f.email_field :email %>
      <br>
-     <%= f.label :プロフィール画像, class: "text-white" %>
-     <%= f.file_field :profile_image, class: "text-white" %>
+     <%= f.label :プロフィール画像, class: "text-dark" %>
+     <%= f.file_field :profile_image, class: "text-dark" %>
    <br>
    <%= f.submit '更新',  class: "btn btn-primary"%>
    <% end %>
    <br>
+  </div>
   </div>
  </div>
 </div>

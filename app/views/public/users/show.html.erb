@@ -2,10 +2,10 @@
 <div class="main posts-index costam">
  <div class="container-fluid  bg01">
   <div class="row">
-     <div class="col my-5">
-     <span class"user-status">
+     <div class="col bg-white">
+     <span class"user-status　">
       <%= image_tag @user.get_profile_image, size: "100x100",  class: "rounded-circle "; %>
-       <h1 class="text-white"><%= @user.name %>のマイページ</h1>
+       <span class="text-dark align-items-center h1"><%= @user.name %>のマイページ</span>
       <div class="user-profile">
        <%= link_to 'プロフィールを編集', edit_user_path(@user), class: "btn btn-secondary"%>
       <%= link_to '退会', user_path(@user), method: :delete, data: { confirm: "本当に退会しますか？" }, class: "btn btn-danger" %>
@@ -18,7 +18,9 @@
       <div class="col no-gutters mx-auto my-3">
        <div class="user-names mx-5">
         <h2 class="text-white">自分のポスト</h2>
-        <%= link_to "新規ポスト", new_post_path, class: "btn btn-primary" %> 
+         <i class="fa-solid fa-plus" style="color: #FFD43B;">
+          <%= link_to "新規ポスト", new_post_path, class: "h3" %>
+         </i>
       </div>
 
         <% @posts.each do |post| %>
