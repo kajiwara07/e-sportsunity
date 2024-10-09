@@ -70,7 +70,7 @@
       <div>
        <p class="text-white">コメント件数：<%= @comments.count %></p>
        <%= form_with model: [@post, @comment] do |f| %>
-        <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+        <%= f.text_area :body, rows: '5', placeholder: "コメントをここに" %>
         <%= f.submit "送信する" %>
     　 <% end %>
       </div>
