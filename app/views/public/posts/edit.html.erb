@@ -2,9 +2,9 @@
   <div class='post-edit img-fluid' style="padding-left:15px; padding-right:15px;">
     <div class="container-fluid my-5">
       <div class="row">
-        <div class="mx-auto">
-          <i class="fas fa-edit left-side__search-title text-white h2">編集しよう</i>
-          <div class="text-white">
+        <div class="card w-50 mx-auto">
+          <i class="fas fa-edit left-side__search-title text-dark h2">編集しよう</i>
+          <div id="error_explanation"> 
             <% if @post.errors.any? %>
               <h3><%= @post.errors.count %> 件のエラーが出ました。</h3>
               <ul>
@@ -14,27 +14,23 @@
               </ul>
             <% end %>
           </div>
-            <%= f.label :image, '写真', class: "text-white" %><br>
-            <%= f.file_field :image, accept: "image/*", class: "text-white" %>
-          </div>
-
+            <%= f.label :image, '写真', class: "text-dark" %><br>
+            <%= f.file_field :image, accept: "image/*", class: "text-dark" %>
           <div>
-            <%= f.label :title, '題名', class: "text-white" %><br>
+            <%= f.label :title, '題名', class: "text-dark" %><br>
             <%= f.text_field :title %>
           </div>
 
           <div>
-            <%= f.label :body, 'ポスト本文(500文字まで)', class: "text-white" %><br>
+            <%= f.label :body, 'ポスト本文(500文字まで)', class: "text-dark" %><br>
             <%= f.text_area :body, size: "100x20", class: "text-dark form-control", rows: 2 %>
           </div>
 
-          <span class="tuyosi">
-            <%= f.submit '更新', class: "btn btn-primary" %>
+          <span class="mx-auto">
+            <%= f.submit '更新', class: "btn btn-primary mt-4 " %>
+            <%= link_to '削除', post_path(@post.id), class: "btn btn-danger mt-4", method: :delete, data: { confirm: "本当に削除しますか？" } %>
           </span>
-
-          <span class="post-list">
-            <%= link_to 'みんなのポストへ', posts_path, class: "btn btn-success" %>
-          </span>
+         </div>
         </div>
       </div>
     </div>

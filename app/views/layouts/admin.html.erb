@@ -22,9 +22,9 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if admin_signed_in? %>
-          <div class="text-right">
+          <li class="nav-item">
             <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-white' %>
-          </div>            
+          </li>            
         <% else %>
         <% end %>
         </ul>

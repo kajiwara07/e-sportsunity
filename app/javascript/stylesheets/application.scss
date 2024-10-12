@@ -52,12 +52,50 @@
 .main-top {
  width: 100%;
 }
+div.field_with_errors {
+ background-color: #fcc;
+ padding: 2px;
+}
+#error_explanation {
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h3 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px -7px 0;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+.new-post-link {
+ border: 1px; 
+ width: 78px;
+ background-color: blue;
+ border-radius: 50px;
+ height: min-content;
+ text-align: center;
+ position: sticky;
+ top: 20px;
+ z-index: 100;
+}
 @media screen and (max-width: 600px) {
   .rounded-circle{
    // width: 50px;
     //height: 50px;
   }
-  
+ h1 {
+  max-width: 100%;
+ }
 .line-height {
    line-height: 40px; 
    margin-left: 30px;
@@ -93,4 +131,5 @@ width: 300px;
 .text-form {
  max-width: 100%;
 }
+
 }

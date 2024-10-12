@@ -5,7 +5,7 @@
      <div class="col bg-white">
      <span class"user-status　">
       <%= image_tag @user.get_profile_image, size: "100x100",  class: "rounded-circle "; %>
-       <span class="text-dark align-items-center h1"><%= @user.name %>のマイページ</span>
+       <span class="text-dark align-items-center h2"><%= @user.name %>のマイページ</span>
       <div class="user-profile">
        <%= link_to 'プロフィールを編集', edit_user_path(@user), class: "btn btn-secondary"%>
       <%= link_to '退会', user_path(@user), method: :delete, data: { confirm: "本当に退会しますか？" }, class: "btn btn-danger" %>
@@ -18,9 +18,11 @@
       <div class="col no-gutters mx-auto my-3">
        <div class="user-names mx-5">
         <h2 class="text-white">自分のポスト</h2>
-         <i class="fa-solid fa-plus" style="color: #FFD43B;">
-          <%= link_to "新規ポスト", new_post_path, class: "h3" %>
-         </i>
+         <div class="new-post-link">
+          <%= link_to new_post_path, class: "h3", method: :get  do %>
+            <i class="fa-solid fa-plus fa-3x" style="color: #FFD43B;"></i>
+            <% end %>
+         </div>
       </div>
 
         <% @posts.each do |post| %>
@@ -56,7 +58,7 @@
               
              <br>
               <%= post.created_at.strftime('%Y-%m-%d %H:%M') %> 
-              <%= link_to "編集", edit_post_path(post.id) %> <!-- 編集リンク -->
+              <%= link_to "編集", edit_post_path(post.id) %> | <!-- 編集リンク -->
               <%= link_to "削除", post_path(post.id), method: :delete, data: { confirm: "本当に削除しますか？" } %> <!-- 削除リンク -->
             </div>
           </div>
