@@ -12,7 +12,7 @@ class Public::UsersController < ApplicationController
   end
 
   def update
-      @user = current_user # ここで@userを設定
+      @user = current_user 
     if @user.update(user_params)
       redirect_to posts_path, notice: 'ユーザー情報が更新されました。'
     else
