@@ -1,4 +1,5 @@
 class Public::CommentsController < ApplicationController
+    
     def create
         @post = Post.find(params[:post_id]) # インスタンス変数として設定
         @comment = current_user.comments.new(comment_params)

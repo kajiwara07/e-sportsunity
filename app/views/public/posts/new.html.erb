@@ -8,7 +8,7 @@
 　　<%= form_with model: @post, local: true do |f| %>
 　　 <div id="error_explanation">
   　　<% if @post.errors.any? %>
-          <h3><%= @post.errors.count %> 件のエラーが出ました。</h3>
+          <h3><%= @post.errors.count %> 件のエラーが出ました。</h2>
           <ul>
             <% @post.errors.full_messages.each do |message| %>
               <li><%= message %></li>

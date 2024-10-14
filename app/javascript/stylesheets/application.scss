@@ -88,6 +88,11 @@ div.field_with_errors {
  top: 20px;
  z-index: 100;
 }
+.scroll-bar {
+ width: max-content;
+ height: 500px;
+ overflow-y: auto;
+}
 @media screen and (max-width: 600px) {
   .rounded-circle{
    // width: 50px;

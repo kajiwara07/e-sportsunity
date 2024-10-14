@@ -1,28 +1,60 @@
 <div class='container-fluid'>
-<div class="row">
- <div class="col-md-12 bg-white my-5">
-<h1 class="text-dark">全ユーザー一覧</h1>
-  <table class="comment-form table table-hover table-inverse">
-    <thead>
-      <tr>
-        <th>プロフ画像</th>
-        <th>ユーザー名</th>
-        <th>メールアドレス</th>
-      </tr>
-    </thead>
-<tbody>
-  <% @users.each do |user| %>
-  <tr>
-     <td>
-         <%= image_tag user.get_profile_image, size: "50x50" %>
-       </td>
-          <td> <%= user.name %></td>
-          <td><%= user.email %></td>
-          <td><%= link_to '削除', admin_user_path(user), method: :delete, date: { confirm: '本当に削除しますか?'}, class: "btn btn-sm btn-danger" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-   </table>
+  <div class="row">
+    <div class="col-md-12 bg-white my-5">
+      <h1 class="text-dark">全ユーザー一覧</h1>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th class="col-1">プロフ画像</th>
+            <th class="col-1">ユーザー名</th>
+            <th class="col-3">メールアドレス</th>
+            <th class="col-1">アクション</th>
+          </tr>
+        </thead>
+        <tbody class="scroll-bar">
+          <% @users.each do |user| %>
+          <tr>
+            <td class="col-1">
+              <%= image_tag user.get_profile_image, size: "50x50" %>
+            </td>
+            <td class="col-1"><%= user.name %></td>
+            <td class="col-3"><%= user.email %></td>
+            <td class="col-1">
+              <%= link_to '削除', admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-sm btn-danger" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="col-md-12">
+        <h1 class="text-dark">コメント一覧</h1>
+        <table class="table table-hover table-inverse">
+          <thead>
+            <tr>
+              <th class="col-1">プロフ画像</th>
+              <th class="col-1">ユーザー名</th>
+              <th class="col-5">コメント</th>
+              <th class="col-1">アクション</th>
+            </tr>
+          </thead>
+          <tbody class="scroll-bar">
+            <% @comments.each do |comment| %>
+            <tr>
+              <td class="col-1">
+                  <%= image_tag comment.user.get_profile_image, size: "50x50" %>
+              </td>
+              <td class="col-1">
+                <%= comment.user.name %>
+              </td>
+              <td class="col-5"><%= comment.body %></td>
+              <td class="col-1">
+                <%= link_to '削除', admin_posts_path(comment), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-sm btn-danger" %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
- </div>
 </div>

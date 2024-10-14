@@ -3,6 +3,7 @@ class Admin::DashboardsController < ApplicationController
     layout 'admin'
     
     def index
+        @comments = Comment.all
         @users = User.all
     end
 end
