@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_10_08_121949) do
+ActiveRecord::Schema.define(version: 2024_10_16_072321) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -54,9 +54,12 @@ ActiveRecord::Schema.define(version: 2024_10_08_121949) do
 
   create_table "chats", force: :cascade do |t|
     t.integer "user_id"
-    t.string "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.text "introduction"
+    t.string "image_id"
+    t.integer "owner_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -68,11 +71,12 @@ ActiveRecord::Schema.define(version: 2024_10_08_121949) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string "title"
-    t.integer "user_id"
-    t.integer "chat_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.integer "chat_id", null: false
+    t.index ["chat_id"], name: "index_groups_on_chat_id"
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -100,4 +104,6 @@ ActiveRecord::Schema.define(version: 2024_10_08_121949) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "groups", "chats"
+  add_foreign_key "groups", "users"
 end

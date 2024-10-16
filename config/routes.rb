@@ -20,8 +20,7 @@ Rails.application.routes.draw do
         resources :comments, only: [:create, :destroy]
         get :search, on: :collection
   end
-  resources :groups, only: [:index, :create, :show, :edit, :update, :destroy]
+  resources :chats, only: [:index, :create, :show, :edit, :update, :destroy]
  
-  get 'chats/show', to: 'chats#show'
  end 
 end
