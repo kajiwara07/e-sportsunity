@@ -1,15 +1,15 @@
-<%= form_with model: group, local: true do |f| %>
+<%= form_with model: chat, local: true do |f| %>
  <div class="form-group">
-  <%= f.label :グループ名 %>
+  <%= f.label :グループ名, class:"text-white" %>
   <%= f.text_field :name, class: 'form-control'%>
  </div>
  <div class="form-group">
-  <%= f.label :紹介文%>
+  <%= f.label :紹介文, class:"text-white"%>
   <%= f.text_area :intoduction, class: 'form-control' %>
  </div>
  <div class="form-group">
-  <%= f.label :グループ名%>
-  <%= f.file_field :group_image, class: "form-control-file", accept: "image/*" %>
+  <%= f.label :グループ画像, class:"text-white"%>
+  <%= f.file_field :group_image, class: "form-control-file text-white", accept: "image/*" %>
  </div>
 
  <div class="form-group">

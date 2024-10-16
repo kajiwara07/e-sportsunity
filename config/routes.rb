@@ -7,7 +7,8 @@ Rails.application.routes.draw do
    namespace :admin do
      resources :posts
      resources :users, only: [:destroy]
-      get 'dashbords', to: 'dashboards#index'
+     resources :comments, only: [:destroy]
+      get 'dashboards', to: 'dashboards#index'
    end
   
  scope module: :public do
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
         resources :comments, only: [:create, :destroy]
         get :search, on: :collection
   end
-  resources :chats, only: [:index, :create, :show, :edit, :update, :destroy]
+  resources :chats, only: [:new, :index, :create, :show, :edit, :update, :destroy]
  
  end 
 end

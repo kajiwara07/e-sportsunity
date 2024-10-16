@@ -48,7 +48,7 @@
               </td>
               <td class="col-5"><%= comment.body %></td>
               <td class="col-1">
-                <%= link_to '削除', admin_posts_path(comment), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-sm btn-danger" %>
+                <%= link_to '削除', admin_comment_path(comment), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-sm btn-danger" %>
               </td>
             </tr>
             <% end %>

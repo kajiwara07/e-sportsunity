@@ -88,6 +88,11 @@ div.field_with_errors {
  top: 20px;
  z-index: 100;
 }
+.back-ground {
+ background-color: #222222;
+ background-size: cover;
+ min-height:  100vh;
+}
 .scroll-bar {
  width: max-content;
  height: 500px;
