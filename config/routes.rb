@@ -21,7 +21,10 @@ Rails.application.routes.draw do
         resources :comments, only: [:create, :destroy]
         get :search, on: :collection
   end
-  resources :chats, only: [:new, :index, :create, :show, :edit, :update, :destroy]
+  
+  resources :chats, only: [:new, :index, :create, :show, :edit, :update, :destroy] do
+     resources :chat_messages, only: [:create]
+  end
+  end 
  
- end 
 end
