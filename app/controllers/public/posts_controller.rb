@@ -22,8 +22,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments  
-    @user = @post.user
-    @user = current_user
+    @user = @post.user 
     @comment = Comment.new
   end
 
@@ -41,12 +40,14 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by(id: params[:id])
-    if @post
+ 　    @post = Post.find_by(id: params[:id])
+   if @post
       @post.destroy
-      redirect_to mypage_path, notice: 'Post was successfully deleted.'
+      flash[:notice] = '投稿は正常に削除されました。'
+      redirect_to mypage_path
     else
-      redirect_to posts_path, alert: 'Post not found.'
+      flash[:alert] = '投稿が見つかりません。'
+      redirect_to posts_path
     end
   end
   

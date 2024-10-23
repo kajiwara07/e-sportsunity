@@ -1,17 +1,37 @@
 
         <li class="nav-item">
-          <%= link_to 'マイページ', mypage_path, class: 'nav-link text-white' %>
+          <%= link_to mypage_path, class: 'nav-link text-white' do %>
+          <i class="fa-solid fa-user" style="color: #ffffff;">
+          マイページ
+           </i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to 'みんなのポスト', posts_path, class: 'nav-link text-white' %>
+          <%= link_to posts_path, class: 'nav-link text-white' do %>
+          <i class="fa-solid fa-paper-plane" style="color: #ffffff;">
+            みんなのポスト
+          </i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to 'about', about_path, class: 'nav-link text-white' %>
+          <%= link_to about_path, class: 'nav-link text-white' do %>
+          <i class="fa-solid fa-link" style="color: #ffffff;">
+            ABOUT
+          </i>  
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to 'グループ一覧', chats_path, class: 'nav-link text-white' %>
+          <%= link_to chats_path, class: 'nav-link text-white' do %>
+          <i class="fa-solid fa-people-group" style="color: #ffffff;">
+            グループ
+          </i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
+          <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-white' do %>
+          <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;">
+            ログアウト
+          </i>
+          <% end %>
         </li>
   

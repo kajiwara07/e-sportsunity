@@ -4,10 +4,10 @@
     <%= render 'public/chats/user', user: @login_user, chat: @chat %>
     <div class="col-md-8 offset-md-1 px-5 px-sm-0 mx-auto">
       <div id="error_explanation">
-      <% if @chat.errors.any? %>
-      <h3><%= @chat.errors.count %> 件のエラーが出ました。</h3>
+      <% if @chat_message.errors.any? %>
+      <h3><%= @chat_message.errors.count %> 件のエラーが出ました。</h3>
       <ul>
-        <% @chat.errors.full_messages.each do |message| %>
+        <% @chat_message.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>

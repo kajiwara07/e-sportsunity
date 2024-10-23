@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-3 my-5">
   <h2 class="text-white">User info</h2>
   <% profile_image = user.get_profile_image %>
   <%= image_tag profile_image, size: "100x100", alt: "User Profile Image" %>
@@ -23,7 +23,7 @@
     <div class="form-group">
       <label class="text-white" for="chat_message_content">コメント</label>
       <%= form.text_area :content,class:"form-control", rows:"5", placeholder: "Type your message...", id: "chat_message_content" %>
-      <%= form.submit "Send", class: "btn btn-primary mt-2" %>
+      <%= form.submit "投稿", class: "btn btn-primary mt-2" %>
     </div>
   <% end %>
   </div>

@@ -2,7 +2,6 @@
   <div class="row">
     <div class="col-md-6 no-gutters">
       <h1 class="text-white">詳細ポスト</h1>
-
       <div class="card mt-4">
         <div class="posts-index-item">
           <div class="d-flex" style="padding: 5px;">
@@ -43,6 +42,9 @@
     </div>
 
     <div class="col-md-6">
+      <% flash.each do |message_type, message| %>
+       <div class="flash-message <%= message_type %>"><%= message %></div>
+      <% end %>
       <div id="error_explanation"> 
         <% if @comment.errors.any? %>
           <h3><%= @comment.errors.count %> 件のエラーが出ました。</h3>

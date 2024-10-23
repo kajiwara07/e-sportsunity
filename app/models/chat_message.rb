@@ -7,9 +7,9 @@ validates :content, length: { in: 1..250 }
 after_create_commit :create_notifications
 
   def create_notifications
-    self.chat.user.chats.where.not(user_id: self.user_id).each do |user|
+    self.chat.users.where.not(id: self.user_id).each do |user|
       Notification.create!(
-        user_id: user.user_id,  # 通知を受けるユーザー
+        user_id: user.id,  # 通知を受けるユーザー
         notifiable: self,  # 関連するチャット
       )
     end

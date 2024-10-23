@@ -16,7 +16,7 @@ class Public::CommentsController < ApplicationController
         comment = current_user.comments.find_by(id: params[:id], post_id: params[:post_id])
         if comment
             comment.destroy
-            flash[:notice] = 'コメントを削除しました'
+            flash[:alert] = 'コメントを削除しました'
         else
             flash[:alert] = 'コメントが見つかりませんでした'
         end

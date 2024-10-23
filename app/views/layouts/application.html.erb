@@ -25,10 +25,17 @@
           <%= render 'layouts/header-user' %>
         <% else %>
         <li class="nav-item">
-          <%= link_to "ユーザー登録", new_user_registration_path, class: 'nav-link text-white' %>
+          <%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
+          <i class="fa-solid fa-user-plus" style="color: #ffffff;">
+            ユーザー登録
+          </i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-white' %>
+          <%= link_to new_user_session_path, class: 'nav-link text-white' do %>
+          <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i>
+            ログイン
+          <% end %>
         </li>
         <% end %>
         </ul>
@@ -39,7 +46,6 @@
 
     </header>
     <main class="mb-auto img-fluid">
-      
     <%= yield %>
     </main>
   </body>

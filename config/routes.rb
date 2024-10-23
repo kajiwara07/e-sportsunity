@@ -22,11 +22,10 @@ Rails.application.routes.draw do
         resources :comments, only: [:create, :destroy]
         get :search, on: :collection
   end
-  
+  resources :notifications, only: [:update]
   resources :chats, only: [:new, :index, :create, :show, :edit, :update, :destroy] do
      resources :chat_messages, only: [:create]
      resources :groups, only: [:create, :destroy]
-     resources :notifications, only: [:update]
      
      namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }

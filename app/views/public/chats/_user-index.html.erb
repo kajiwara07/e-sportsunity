@@ -1,9 +1,11 @@
-<div class="col-md-3">
+<div class="col-md-3 my-5">
   <h2 class="text-white">User info</h2>
-  <%= link_to "グループを作成する", new_chat_path %> |
-  <%= link_to "グループ一覧", chats_path %>
-  <% profile_image = @user.get_profile_image %>
-  <%= image_tag profile_image, size: "100x100" %>
+  <div class="text-white">
+    <%= link_to "グループを作成する", new_chat_path %> |
+    <%= link_to "更新", chats_path %><br>
+  </div>
+    <% profile_image = @user.get_profile_image %>
+    <%= image_tag profile_image, size: "100x100" %>
   
   <table class="table text-white">
     <tbody>

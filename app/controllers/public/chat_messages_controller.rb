@@ -8,7 +8,7 @@ class Public::ChatMessagesController < ApplicationController
     redirect_to @chat_message.chat, notice: 'メッセージが送信されました。'
   else
     @chat = @chat_message.chat
-    @user = current_user
+    @login_user = current_user
     render 'public/chats/show' # 適切なビューをレンダリング
   end
 end

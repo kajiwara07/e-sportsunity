@@ -85,7 +85,7 @@ div.field_with_errors {
  height: min-content;
  text-align: center;
  position: fixed;
- top: 20px;
+ bottom: 20px;
  z-index: 100;
 }
 .group-chat {
@@ -181,10 +181,24 @@ div.field_with_errors {
   -webkit-transform: rotate(-35deg);
   transform: rotate(-35deg);
 }
+.flash-message {
+  border-radius: 5px;
+  padding: 16px 24px;
+  margin: 16px 0px;
+}
+ 
+.flash-message.notice {
+  background-color: #bcdfff;
+  color: #0067C0;
+  border: solid 1px #0067C0;
+}
+ 
+.flash-message.alert {
+  background-color: #ffd4d1;
+  color: #930403;
+  border: solid 1px #930403;
+}
 
-/************************************
-** 送信フォーム
-************************************/
 
 @media screen and (max-width: 600px) {
   .rounded-circle{

@@ -3,18 +3,22 @@ class Public::GroupsController < ApplicationController
   def create
     @group = current_user.groups.new(chat_id: params[:chat_id])
     if @group.save
-      redirect_to request.referer, notice: 'You have joined the group.'
+      redirect_to request.referer
+      flash[:notice] = 'グループに参加しました。。'
     else
-      redirect_to request.referer, alert: 'Failed to join the group.'
+      redirect_to request.referer
+      flash[:alert] = 'グループに参加できません。'
     end
   end
   def destroy
     @group = current_user.groups.find_by(chat_id: params[:chat_id])
     if @group
       @group.destroy
-      redirect_to request.referer, notice: 'You have left the group.'
+      redirect_to request.referer
+      flash[:notice] = 'グループを退会しました。'
     else
-      redirect_to request.referer, alert: 'Group not found or you are not part of this group.'
+      redirect_to request.referer
+      flash[:alert] = 'グループが見つからないか、このグループのメンバーではありません。'
     end
   end
 end

@@ -1,8 +1,10 @@
 <div class="container-fluid back-ground">
  <div class="row">
-  <%= flash[:notice] %>
   <%= render 'public/chats/user-index', chat: @chat, user: @login_user %>
   <div class="col-md-8 offset-md-1">
+    <% flash.each do |message_type, message| %>
+     <div class="flash-message <%= message_type %>"><%= message %></div>
+    <% end %>
    <li class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Notification

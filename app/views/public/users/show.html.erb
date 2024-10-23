@@ -17,7 +17,10 @@
     <div class="row">
       <div class="col no-gutters mx-auto my-3">
        <div class="user-names mx-5">
-          <li class="dropdown">
+         <% flash.each do |message_type, message| %>
+          <div class="flash-message <%= message_type %>"><%= message %></div>
+         <% end %>
+           <li class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Notification
               <span class="badge badge-danger"><%= current_user.notifications.where(read: false).count %></span>
