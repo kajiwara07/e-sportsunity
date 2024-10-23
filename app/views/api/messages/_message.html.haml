@@ -1,0 +1,36 @@
+.message{"data-message-id": "#{message.id}"}
+  .upper-info
+  
+  .truncate(100)
+  .message
+  .message-content
+    = message.content
+  .message-details
+  .message-user
+    = message.user.username # ユーザー名を表示。適宜変更してください
+  .message-timestamp
+    = time_ago_in_words(message.created_at) + " ago" # メッセージの作成日時を表示
+    
+    = form_with(model: @chat, local: true) do |form|
+  - if @chat.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@chat.errors.count, "error") + " prevented this chat from being saved:"
+      %ul
+        - @chat.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = form.label :name
+    = form.text_field :name
+
+  .field
+    = form.label :introduction
+    = form.text_area :introduction
+
+  .field
+    = form.label :chat_image
+    = form.file_field :chat_image
+
+  .actions
+    = form.submit "Create Chat"

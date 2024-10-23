@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :groups, dependent: :destroy
   has_many :chats, through: :groups
   has_many :chat_messages
+  has_many :notifications, dependent: :destroy
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

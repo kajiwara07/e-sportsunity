@@ -8,6 +8,7 @@ Rails.application.routes.draw do
      resources :posts
      resources :users, only: [:destroy]
      resources :comments, only: [:destroy]
+     resources :chats, only: [:destroy]
       get 'dashboards', to: 'dashboards#index'
    end
   
@@ -24,6 +25,12 @@ Rails.application.routes.draw do
   
   resources :chats, only: [:new, :index, :create, :show, :edit, :update, :destroy] do
      resources :chat_messages, only: [:create]
+     resources :groups, only: [:create, :destroy]
+     resources :notifications, only: [:update]
+     
+     namespace :api do
+      resources :messages, only: :index, defaults: { format: 'json' }
+    end
   end
   end 
  

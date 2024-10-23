@@ -1,15 +1,18 @@
 class Public::ChatMessagesController < ApplicationController
-    def create
-  @chat = Chat.find(params[:chat_id])
-  @chat_message = @chat.chat_messages.build(chat_message_params)
+    
+  def create
+  @chat_message = ChatMessage.new(chat_message_params)
   @chat_message.user = current_user
-
+  @chat_message.chat = Chat.find(params[:chat_id])
   if @chat_message.save
-    redirect_to chat_path(@chat)
+    redirect_to @chat_message.chat, notice: 'メッセージが送信されました。'
   else
-    render 'public/chats/show'
+    @chat = @chat_message.chat
+    @user = current_user
+    render 'public/chats/show' # 適切なビューをレンダリング
   end
 end
+
 
 private
 

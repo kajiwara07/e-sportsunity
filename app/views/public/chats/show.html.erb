@@ -1,30 +1,55 @@
 <div class="container-fluid back-ground">
   <%= flash[:notice] %>
   <div class="row">
-    <%= render 'public/chats/user', chats: @chats, users: @users %>
+    <%= render 'public/chats/user', user: @login_user, chat: @chat %>
     <div class="col-md-8 offset-md-1 px-5 px-sm-0 mx-auto">
-      <h1 class="text-white"><%= @chat.name %></h1>
-      <div class="group-show">
-        <div class="show-group-chat-back">
-          <span class="group-show-group-chat-back">
-            <%= link_to '＜', chats_path, class: 'back-link' %>
-          </span>
-        </div>
-
-        <div class="chat-group-show-talk text-white">
-          <div id="chat-messages">
-            <% if @chat.chat_messages.any? %>
-              <% @chat.chat_messages.each do |message| %>
-                <div>
-                　<% if message.user %>
-                 　<strong><%= message.user.name %>:</strong> <%= message.content %>
-                  <% else%>
-                  <% end %>
-                </div>
-              <% end %>
-            　<% else %>
+      <div id="error_explanation">
+      <% if @chat.errors.any? %>
+      <h3><%= @chat.errors.count %> 件のエラーが出ました。</h3>
+      <ul>
+        <% @chat.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
+      <span class="group-show-group-chat-back">
+        <%= link_to chats_path, class: 'back-link', method: :get do %>
+          <i class="fa-solid fa-circle-arrow-left fa-2xl text-warning"></i>
+        <% end %>
+      </span>
+      
+      <span class="text-white h1 text-center"><%= @chat.name %>のグループ</span>
+      <div class="chat-group-show-talk text-white h4">
+        <div class="chat_messages">
+          <% if @chat.chat_messages.any? %>
+            <% @chat.chat_messages.each do |message| %>
+              <div>
+                <% if message.user_id == current_user.id %>
+                  <div class="mycomment">
+                    <span class="h6"><%= message.created_at.strftime('%H:%M') %></span>
+                    <p><%= message.content %></p>
+                  </div>
+                <% else %>
+                  <div class="fukidashi">
+                    <div class="faseicon">
+                      <% if message.user %>
+                      <%= image_tag(message.user.get_profile_image, size: "30x30", class: "rounded-circle") %>
+                      <strong class="text-white"><%= message.user.name %></strong>
+                      <% end %>
+                    </div>
+                    <div class="chatting">
+                      <div class="says">
+                        <p><%= message.content %></p>
+                      </div>
+                         <%= message.created_at.strftime('%H:%M') %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
             <% end %>
-          </div>
+          <% else %>
+          <% end %>
         </div>
       </div>
     </div>

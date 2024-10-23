@@ -1,6 +1,20 @@
-<div class='container'>
- <div class='row'>
-  <div class='col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto'>
-    <h3 class="text-white">Editing Group</h3>
+<div class="container-fluid back-ground">
+ <div class="row">
+  <div class="card w-40 mx-auto my-5">
+  <div clas="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+    <div id="error_explanation">
+      <% if @chat.errors.any? %>
+      <h3><%= @chat.errors.count %> 件のエラーが出ました。</h3>
+      <ul>
+        <% @chat.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
+    <h3>Editing Group</h3>
      <%= render 'form', chat: @chat %>
+  </div>
+  </div>
+ </div>
 </div>

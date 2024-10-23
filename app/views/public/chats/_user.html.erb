@@ -1,29 +1,30 @@
 <div class="col-md-3">
   <h2 class="text-white">User info</h2>
-  <% profile_image = @user.get_profile_image %>
+  <% profile_image = user.get_profile_image %>
   <%= image_tag profile_image, size: "100x100", alt: "User Profile Image" %>
   
   <table class="table text-white">
     <tbody>
       <tr>
         <th>Name</th>
-        <td><%= @user.name %></td>
+        <td><%= user.name %></td>
       </tr>
     </tbody>
   </table>
   
   <div class="row">
-    <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
+    <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
       <i class="fas fa-user-cog" aria-hidden="true"></i> 編集
     <% end %>
   </div>
-
+  <div class="group-chat">
   <h5 class="mt-3 text-white">グルチャコメント</h5>
-  <%= form_with(url: chat_chat_messages_path(@chat), model: @chat.chat_messages.build, local: true) do |form| %>
+  <%= form_with(url: chat_chat_messages_path(chat), model: ChatMessage.new(chat_id: chat.id), local: true) do |form| %>
     <div class="form-group">
       <label class="text-white" for="chat_message_content">コメント</label>
       <%= form.text_area :content,class:"form-control", rows:"5", placeholder: "Type your message...", id: "chat_message_content" %>
       <%= form.submit "Send", class: "btn btn-primary mt-2" %>
     </div>
   <% end %>
+  </div>
 </div>
