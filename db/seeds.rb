@@ -31,13 +31,13 @@ Post.find_or_create_by!(title: "Cavello") do |post|
   post.user = olivia
 end
 
-Post.find_or_create_by!(title: "和食屋せん") do |post|
+Post.find_or_create_by!(title: "tticky") do |post|
   post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post2.jpg"), filename:"sample-post2.jpg")
   post.body = "レッドスカルがんばれ！"
   post.user = james
 end
 
-Post.find_or_create_by!(title: "ShoreditchBar") do |post|
+Post.find_or_create_by!(title: "Shoreditch") do |post|
   post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post3.jpg"), filename:"sample-post3.jpg")
   post.body = 'KID選手はすばらしい力を持っている'
   post.user = lucas
