@@ -4,6 +4,9 @@
   <!--<div class="mx-auto">-->
   <div class="main-top">
    <div class="about-title ">
+    <% flash.each do |message_type, message| %>
+      <div class="flash-message <%= message_type %>"><%= message %></div>
+      <% end %>
     <span class="text-white h2">About
      <small class="text-white h4">- ESport unity について -</small>
     </span>     
