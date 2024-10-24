@@ -23,7 +23,6 @@ class Public::ChatsController < ApplicationController
 
   def create
     @chat = Chat.new(chat_params)
-    @chat.user_id = current_user.id
     @chat.owner_id = current_user.id
     if @chat.save
      @chat.users << current_user
