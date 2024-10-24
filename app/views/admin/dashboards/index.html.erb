@@ -82,7 +82,7 @@
           <% if chat.chat_image.present? %>
             <%= image_tag chat.chat_image, size: "50x50" %>
           <% else %>
-            <%= image_tag 'no_image', size: "50x50" %>
+            <%= image_tag asset_path('no_image.jpg'), size: "50x50" %>
           <% end %>
         </td>
         <td><%= chat.name %></td>
