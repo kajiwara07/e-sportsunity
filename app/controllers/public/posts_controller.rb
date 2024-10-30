@@ -40,15 +40,14 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
- 　    @post = Post.find_by(id: params[:id])
-   if @post
-      @post.destroy
+     @post = Post.find(params[:id])
+   if @post.destroy
       flash[:notice] = '投稿は正常に削除されました。'
       redirect_to mypage_path
-    else
+   else
       flash[:alert] = '投稿が見つかりません。'
       redirect_to posts_path
-    end
+   end
   end
   
   def search
