@@ -18,7 +18,8 @@
 * トーナメント情報の確認
 
 ## 設計書
-後ほど作成予定
+![スクリーンショット 2024-11-27 191634](https://github.com/user-attachments/assets/77c169f8-49e9-419d-b445-24a8d2def968)
+![スクリーンショット 2024-11-27 191123](https://github.com/user-attachments/assets/f5694f0f-40aa-4eda-b39b-0bc74958d40d)
 
 ## 開発環境
 * OS : Windows11
